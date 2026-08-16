@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ryu.pull-requests",
+  "version": "0.1.14",
+  "description": "A focused pull-request inbox for Ryu. Browse review requests and authored work across repositories, inspect summaries, changed files, checks and discussion, then comment, review or merge through the locally authenticated GitHub CLI.",
+  "keywords": [
+    "github",
+    "git",
+    "pull requests",
+    "code review",
+    "ci"
+  ],
+  "extensions": {
+    "com.ryuhq.ryu": {
+      "id": "@ryu/pull-requests",
+      "displayName": "Pull Requests"
+    }
+  }
+}
