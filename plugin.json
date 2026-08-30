@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ryu.pull-requests",
+  "version": "0.1.14",
+  "description": "A focused GitHub work inbox for Ryu. Browse pull requests and issues across repositories, inspect summaries and discussion, then review, manage stacked pull requests, merge changes, or close and comment on issues through the locally authenticated GitHub CLI.",
+  "author": {
+    "name": "Ryu",
+    "url": "https://ryuhq.com"
+  },
+  "homepage": "https://github.com/amajorai/ryu-pull-requests",
+  "repository": "https://github.com/amajorai/ryu-pull-requests",
+  "keywords": ["github", "git", "pull requests", "issues", "code review", "ci"],
+  "extensions": {
+    "com.ryuhq.ryu": {
+      "id": "@ryu/pull-requests",
+      "displayName": "Pull Requests"
+    }
+  }
+}
