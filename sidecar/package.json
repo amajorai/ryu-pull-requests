@@ -1,0 +1,24 @@
+{
+  "name": "@ryu/pull-requests-sidecar",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "ryu-pull-requests": "./src/index.ts"
+  },
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "build": "bun build src/index.ts --compile --outfile dist/ryu-pull-requests",
+    "check-types": "tsc --noEmit",
+    "test": "bun test src"
+  },
+  "dependencies": {
+    "@ryu/sidecar-runtime": "workspace:*",
+    "zod": "^4.6.6"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.3",
+    "typescript": "^5"
+  }
+}
