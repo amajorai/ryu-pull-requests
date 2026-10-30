@@ -1,0 +1,39 @@
+<!doctype html>
+<html class="dark" lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Code Review preview</title>
+		<style>
+		body.preview-mode {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			background: var(--background);
+		}
+		.preview-banner {
+			z-index: 30;
+			flex: 0 0 auto;
+			padding: 7px 14px;
+			font: 11px / 1.4 var(--font-sans);
+			color: var(--muted-foreground);
+			background: var(--card);
+			border-bottom: 1px solid var(--border);
+		}
+		body.preview-mode #ryu-plugin-root {
+			flex: 1;
+			height: auto;
+			min-height: 0;
+			overflow: hidden;
+		}
+		</style>
+	</head>
+	<body class="preview-mode">
+		<div class="preview-banner">
+			Local UI preview · sample GitHub data · GitHub and model actions are
+			simulated
+		</div>
+		<div id="ryu-plugin-root"></div>
+		<script type="module" src="./preview.tsx"></script>
+	</body>
+</html>
