@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "package": "pull-requests",
+  "scope": "partial",
+  "expectedRows": 2,
+  "selector": {
+    "config": "e2e/pull-requests-companion.playwright.config.mjs",
+    "spec": "e2e/pull-requests-companion.spec.mjs"
+  },
+  "evidenceBoundary": "The built single-file Pull Requests app runs in Chromium with a deterministic local window.ryu bridge. Tests prove local clipboard contents, UI fallback, merge-queue request payload and local submission notice only; they do not authenticate with GitHub, invoke the real gh CLI, or prove a GitHub merge queue accepted or completed the request.",
+  "assertions": [
+    {
+      "row": {
+        "package": "pull-requests",
+        "source_file": "apps-store/pull-requests/ui/src/App.tsx",
+        "line": "296",
+        "component": "GitHubSetup",
+        "tag": "Button",
+        "events": "onClick"
+      },
+      "testTitle": "copying a one-time GitHub code writes the exact code to the local clipboard",
+      "assertionName": "Copy reports success only after the local clipboard contains the presented device code.",
+      "assertionMarker": "ABCD-EFGH"
+    },
+    {
+      "row": {
+        "package": "pull-requests",
+        "source_file": "apps-store/pull-requests/ui/src/App.tsx",
+        "line": "1941",
+        "component": "DetailPane",
+        "tag": "DropdownMenuItem",
+        "events": "onClick"
+      },
+      "testTitle": "Queue stack submits the exact merge-queue request and shows local submission feedback",
+      "assertionName": "The stack menu sends squash plus merge_queue with auto enabled and renders the local submission status.",
+      "assertionMarker": "Queue stack through #101"
+    }
+  ]
+}
