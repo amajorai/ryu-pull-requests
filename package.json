@@ -1,0 +1,8 @@
+{
+  "name": "ryu-pull-requests-satellite",
+  "private": true,
+  "workspaces": [
+    "sidecar",
+    "packages/*"
+  ]
+}
