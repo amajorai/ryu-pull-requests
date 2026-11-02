@@ -1,0 +1,304 @@
+/* Continues styles.css; main.tsx imports the parts in order. */
+@media (max-width: 760px) {
+	.app-shell {
+		display: block;
+	}
+	.inbox {
+		border: 0;
+	}
+	.detail {
+		position: absolute;
+		inset: 0;
+		z-index: 10;
+		display: none;
+		background: var(--background);
+	}
+	.detail.visible {
+		display: block;
+	}
+	.inbox.has-selection {
+		display: none;
+	}
+	.mobile-back {
+		position: absolute;
+		inset-inline-start: 16px;
+		top: 72px;
+		z-index: 3;
+		display: block;
+		color: var(--muted-foreground);
+		background: transparent;
+		border: 0;
+	}
+	/* Clear the absolutely positioned .mobile-back above the PR heading. */
+	.detail-scroll {
+		padding-top: 58px;
+	}
+	/* The review panels also carry `.t-tabs-panel-review[role="tabpanel"]`
+	   (0,2,0) from @ryu/ui tabs.css, so this needs (0,3,0) to win in any
+	   load order. The repeated class raises specificity without a custom
+	   class on TabsContent, which the shared-component grammar forbids. */
+	.review-pane-body.review-pane-body > [role="tabpanel"] {
+		padding-top: 58px;
+	}
+	.summary-grid {
+		grid-template-columns: 1fr;
+	}
+	.detail-toolbar {
+		padding-inline-start: 10px;
+	}
+	.detail-toolbar .secondary {
+		display: none;
+	}
+}
+
+:where(button, a, input, select, textarea, summary, [tabindex]):focus-visible {
+	outline: 2px solid var(--ring, var(--primary));
+	outline-offset: 2px;
+}
+
+.inbox-header {
+	gap: 15px;
+	min-height: 0;
+	padding: 14px 0 12px;
+}
+.scope-tabs {
+	gap: 2px;
+	padding: 3px;
+	background: var(--muted);
+	border-radius: 999px;
+}
+.scope-tabs button {
+	flex: 1;
+	padding: 7px 9px;
+	font-size: 11px;
+	white-space: nowrap;
+}
+.scope-tabs button[aria-pressed="true"] {
+	box-shadow: 0 1px 2px color-mix(in oklab, var(--foreground) 10%, transparent);
+}
+.search-row {
+	padding: 8px 16px 10px;
+}
+.filters {
+	padding-inline: 18px;
+}
+.pull-list {
+	padding: 6px 9px 20px;
+}
+.pull-row-aside {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	align-items: end;
+	font-size: 10px;
+}
+.detail-change-count {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 20px;
+	padding: 1px 5px;
+	margin-inline-start: 4px;
+	font-size: 10px;
+	color: var(--muted-foreground);
+	background: var(--muted);
+	border-radius: 999px;
+}
+.review-pane-body {
+	position: relative;
+	display: grid;
+	flex: 1;
+	grid-template-columns: minmax(0, 1fr) 310px;
+	min-width: 0;
+	min-height: 0;
+}
+.review-rail {
+	display: flex;
+	flex-direction: column;
+	grid-row: 1;
+	grid-column: 2;
+	min-width: 0;
+	min-height: 0;
+	border-inline-start: 1px solid var(--border);
+}
+.review-overview {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 14px;
+	padding: 20px 16px 28px;
+	overflow-y: auto;
+}
+.review-rail-heading,
+.reviewer-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.review-rail-heading h2 {
+	margin: 0;
+	font-size: 15px;
+	font-weight: 550;
+}
+.review-decision {
+	padding: 4px 8px;
+	font-size: 10px;
+	color: var(--primary);
+	background: var(--muted);
+	border: 1px solid var(--border);
+	border-radius: 999px;
+}
+.review-card {
+	padding: 12px;
+	background: var(--card);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+}
+.review-card h3 {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 0 10px;
+	font-size: 12px;
+	font-weight: 550;
+}
+.review-card h3 span,
+.review-card-note {
+	font-weight: 400;
+	color: var(--muted-foreground);
+}
+.merge-status,
+.review-comments p {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	margin: 0;
+	font-size: 12px;
+}
+.merge-status-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+}
+.merge-status-dot.good {
+	background: var(--status-success);
+}
+.merge-status-dot.bad {
+	background: var(--status-destructive);
+}
+.merge-status-dot.pending {
+	background: var(--status-warning);
+}
+.review-card-note {
+	margin: 7px 0 0;
+	font-size: 11px;
+	text-transform: capitalize;
+}
+.reviewer-list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.reviewer-row {
+	gap: 8px;
+	justify-content: flex-start;
+	min-width: 0;
+	font-size: 11px;
+}
+.reviewer-row .avatar {
+	width: 23px;
+	height: 23px;
+}
+.reviewer-row strong {
+	flex: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: 500;
+	white-space: nowrap;
+}
+.reviewer-row > span:last-child {
+	color: var(--muted-foreground);
+	text-transform: capitalize;
+}
+.review-overview > .detail-section {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+.review-overview > .detail-section h2 {
+	margin-bottom: 9px;
+	font-size: 12px;
+	font-weight: 550;
+}
+.review-overview .check-row {
+	grid-template-columns: 17px minmax(0, 1fr) auto;
+	gap: 7px;
+	padding: 8px 0;
+	font-size: 11px;
+}
+.review-overview .check-row small {
+	font-size: 10px;
+}
+.review-overview .check-row svg {
+	width: 15px;
+	height: 15px;
+}
+.review-mobile-overview {
+	display: none;
+}
+
+@media (max-width: 1180px) {
+	.review-pane-body {
+		display: block;
+	}
+	.review-rail {
+		position: absolute;
+		inset-block: 0;
+		inset-inline-end: 0;
+		z-index: 5;
+		display: none;
+		width: min(380px, 94%);
+		background: var(--background);
+		border: 1px solid var(--border);
+	}
+	.review-mobile-overview {
+		display: block;
+		margin-top: 24px;
+	}
+	.review-mobile-overview > .review-overview {
+		padding: 0;
+		overflow: visible;
+	}
+}
+
+@media (max-width: 760px) {
+	.app-shell {
+		grid-template-columns: minmax(0, 1fr);
+	}
+	.review-rail {
+		inset-inline-start: 0;
+		width: 100%;
+		border-inline-start: 0;
+	}
+	.inbox-heading .ryu-app-toolbar__title {
+		font-size: 0.95rem;
+	}
+	.scope-tabs button {
+		padding-inline: 6px;
+		font-size: 10px;
+	}
+	.detail-toolbar {
+		gap: 8px;
+		min-height: 60px;
+		padding-inline: 10px;
+	}
+	.detail-toolbar > div {
+		gap: 4px;
+	}
+	.detail-toolbar > div > button[aria-expanded] {
+		font-size: 11px;
+	}
+	.review-mobile-overview > .review-overview {
+		gap: 10px;
+	}
+}
