@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ryu.pull-requests",
+  "version": "0.1.15",
+  "description": "A unified GitHub code review workspace for Ryu. Triage pull requests across repositories, inspect changes and checks, discuss and submit reviews, manage stacks, and ask the Ask Ryu assistant about the selected pull request.",
+  "author": {
+    "name": "Ryu",
+    "url": "https://ryuhq.com"
+  },
+  "homepage": "https://github.com/amajorai/ryu-pull-requests",
+  "repository": "https://github.com/amajorai/ryu-pull-requests",
+  "keywords": ["github", "git", "pull requests", "issues", "code review", "ci"],
+  "extensions": {
+    "com.ryuhq.ryu": {
+      "id": "@ryu/pull-requests",
+      "displayName": "Code Review"
+    }
+  }
+}

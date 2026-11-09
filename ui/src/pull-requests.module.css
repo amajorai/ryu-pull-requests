@@ -1,0 +1,3 @@
+.inboxTopline {
+	composes: inbox-topline from global;
+}
